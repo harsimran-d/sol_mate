@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:solmate/src/widgets/buttons/buttons.dart';
+
+import '/src/widgets/buttons/buttons.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});

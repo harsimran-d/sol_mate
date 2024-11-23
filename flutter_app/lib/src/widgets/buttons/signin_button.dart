@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/src/features/pages.dart';
+
 class SigninButton extends StatelessWidget {
   const SigninButton({super.key});
 
@@ -9,7 +11,9 @@ class SigninButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: OutlinedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(SigninPage.route);
+        },
         style: const ButtonStyle(
             side: WidgetStatePropertyAll(BorderSide(color: Colors.red)),
             shape: WidgetStatePropertyAll(

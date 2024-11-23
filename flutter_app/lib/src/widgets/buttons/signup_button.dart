@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/src/features/pages.dart';
+
 class SignupButton extends StatelessWidget {
   const SignupButton({super.key});
 
@@ -9,7 +11,9 @@ class SignupButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(SignupPage.route);
+        },
         style: const ButtonStyle(
             shape: WidgetStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(8)))),
