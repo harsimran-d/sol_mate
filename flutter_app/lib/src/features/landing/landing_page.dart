@@ -31,11 +31,11 @@ class LandingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const CreateAccountButton(),
+                const SignupButton(),
                 const SizedBox(
                   height: 8,
                 ),
-                const LoginButton(),
+                const SigninButton(),
               ],
             ),
           ),
