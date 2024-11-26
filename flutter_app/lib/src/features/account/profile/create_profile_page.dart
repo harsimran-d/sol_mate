@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:solmate/src/features/account/signup/view/create_account.dart';
+import 'package:solmate/src/widgets/buttons/primary_button.dart';
 
 class CreateProfilePage extends StatefulWidget {
   static MaterialPageRoute<void> get route =>
@@ -12,9 +12,7 @@ class CreateProfilePage extends StatefulWidget {
 
 class _CreateProfilePageState extends State<CreateProfilePage> {
   final _formKey = GlobalKey<FormState>();
-  final _nameFieldKey = GlobalKey<FormFieldState>();
 
-  final _firstNameController = TextEditingController();
   final _dobDayController = TextEditingController();
   final _dobMonthController = TextEditingController();
   final _dobYearController = TextEditingController();
@@ -38,7 +36,6 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
 
   @override
   void dispose() {
-    _firstNameController.dispose();
     _dobDayController.dispose();
     _dobMonthController.dispose();
     _dobYearController.dispose();
@@ -71,25 +68,6 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "First Name",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      TextFormField(
-                        key: _nameFieldKey,
-                        controller: _firstNameController,
-                        onChanged: (_) =>
-                            _nameFieldKey.currentState!.validate(),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Name cannot be empty";
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
                       const Text(
                         "Date of Birth  DD/MM/YYYY",
                         style: TextStyle(fontSize: 20),
@@ -280,7 +258,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                   )),
                 ),
               ),
-              CreateAccountButton(
+              PrimaryButton(
                 onPressed: () {
                   setState(() {
                     _showGenderError = _selectedGender == null;
@@ -289,6 +267,7 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                   });
                   if (_formKey.currentState!.validate()) {}
                 },
+                buttonText: 'Create Profile',
               ),
             ],
           ),
